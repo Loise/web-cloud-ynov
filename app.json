@@ -1,9 +1,9 @@
-import 'dotenv/config';
-export default {
+{
   "expo": {
     "experiments": {
       "baseUrl": "/web-cloud-ynov"
     },
+    "scheme": "web-cloud-ynov",
     "name": "web-cloud-ynov",
     "slug": "web-cloud-ynov",
     "version": "1.0.0",
@@ -30,18 +30,17 @@ export default {
       "package": "com.loise.fenoll.webcloudynov"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "a760bc3a-137b-4049-b05f-c14e36f4b827",
-        firebaseApiKey: process.env.FIREBASE_API_KEY,
-        firebaseAuthDomain: process.env.FIREBASE_AUTH_DOMAIN,
-        firebaseProjectId: process.env.FIREBASE_PROJECT_ID,
-        firebaseStorageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-        firebaseMessagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-        firebaseAppId: process.env.FIREBASE_APP_ID
+        "projectId": "a760bc3a-137b-4049-b05f-c14e36f4b827"
       }
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
