@@ -1,4 +1,5 @@
 import { getAuth, signInWithPhoneNumber } from "firebase/auth";
+import "./auth_phone_recaptcha_verifier_simple";
 
 const appVerifier = window.recaptchaVerifier;
 
@@ -16,6 +17,7 @@ export const loginWithPhoneNumber = async (phoneNumber) => {
       // Error; SMS not sent
       // ...
       console.log("SMS not sent")
+      console.log(error);
     });
   };
 
