@@ -1,6 +1,15 @@
 import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
 import { provider } from "./auth_github_provider_create";
+import Toast from 'react-native-toast-message';
+const showToast = () => {
+    Toast.show({
+      type: 'success',
+      text1: 'Hello',
+      text2: 'This is some something 👋'
+    });
+  }
 
+  
 const auth = getAuth();
 export const signinWithGithub = () => {
     console.log("signinWithGithub")
@@ -15,6 +24,7 @@ export const signinWithGithub = () => {
             // IdP data available using getAdditionalUserInfo(result)
             // ...
             console.log("signin success with github")
+            showToast();
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
