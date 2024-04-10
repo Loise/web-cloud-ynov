@@ -6,7 +6,7 @@ import { signin } from "../firebase/auth_signin_password";
 import { signInWithFacebook } from "../firebase/auth_facebook_signin_popup"
 import { signinWithGithub } from "../firebase/auth_github_signin_popup";
 import { loginWithPhoneNumber } from "../firebase/auth_phone_signin";
-// import { verifyCode } from "../firebase/auth_phone_verify_code";
+import { verifyCode } from "../firebase/auth_phone_verify_code";
 // import Toast from 'react-native-root-toast';
 // import SnackBar from 'react-native-snackbar-component'
 export default function Page() {
@@ -46,15 +46,15 @@ export default function Page() {
       <Pressable onPress={() => signup(email, password)} style = {styles.button}>
         <Text>Sign Up!</Text>
       </Pressable>
-      <Pressable onPress={() => signin(email, password)} >
+      <Pressable onPress={() => signin(email, password)} style = {styles.button}>
         <Text>Sign In!"</Text>
       </Pressable>
       <Text>____Facebook_____</Text>
-      <Pressable onPress={() => signInWithFacebook()} >
+      <Pressable onPress={() => signInWithFacebook()} style = {styles.button}>
         <Text>Sign In with Facebook</Text>
       </Pressable>
       <Text>____Github_____</Text>
-      <Pressable onPress={() => signinWithGithub()} >
+      <Pressable onPress={() => signinWithGithub()} style = {styles.button}>
         <Text>Sign In with Github</Text>
       </Pressable>
 
@@ -65,7 +65,7 @@ export default function Page() {
         onChangeText={onChangePhoneNumber}
         value={phoneNumber}
       ></TextInput>
-      <Pressable id="sign-in-button-phone" onPress={() => setPhoneResult(loginWithPhoneNumber(phoneNumber))} >
+      <Pressable id="sign-in-button-phone" onPress={() => setPhoneResult(loginWithPhoneNumber(phoneNumber))} style = {styles.button}>
         <Text>Sign In with Phone</Text>
       </Pressable>
       <div id="recaptcha-container"></div>
@@ -75,7 +75,9 @@ export default function Page() {
         onChangeText={onChangeCode}
         value={code}
       ></TextInput>
-      {/* <Button title="Check code!" onPress={() => verifyCode(code, phoneResult)} /> */}
+      <Pressable onPress={() => verifyCode(code, phoneResult)} style = {styles.button}>
+        <Text>Check Code !</Text>
+      </Pressable>
 
     </View>
   );
