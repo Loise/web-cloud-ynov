@@ -1,11 +1,26 @@
-//import "../firebaseConfig";
+import app from "../firebaseConfig";
 import { getAuth, signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 
-const auth = getAuth();
+const auth = getAuth(app);
 console.log(auth);
+
 export const loginWithPhoneNumber = async (phoneNumber) => {
-    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {});
-    console.log(window.recaptchaVerifier)
+    window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+        'size': 'normal',
+        'callback': (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          // ...
+          console.log("recaptcha allowed")
+          console.log(response)
+        },
+        'expired-callback': () => {
+          // Response expired. Ask user to solve reCAPTCHA again.
+          // ...
+
+          console.log("recaptcha not allowed")
+          console.log("expired-callback")
+        }
+    });
     const appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(auth, phoneNumber, appVerifier)
     .then((confirmationResult) => {

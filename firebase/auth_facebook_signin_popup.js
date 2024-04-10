@@ -1,7 +1,8 @@
+import app from "../firebaseConfig";
 import { getAuth, signInWithPopup, FacebookAuthProvider } from "firebase/auth";
 import { provider } from "./auth_facebook_provider_create";
 
-const auth = getAuth();
+const auth = getAuth(app);
 export const signInWithFacebook = () => {
     signInWithPopup(auth, provider)
     .then((result) => {

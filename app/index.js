@@ -1,5 +1,5 @@
 import React from "react";
-import "../firebaseConfig"
+// import "../firebaseConfig"
 import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
 import { signup } from "../firebase/auth_signup_password";
 import { signin } from "../firebase/auth_signin_password";
