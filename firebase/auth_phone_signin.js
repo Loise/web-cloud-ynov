@@ -1,3 +1,4 @@
+import "../firebaseConfig";
 import { getAuth, signInWithPhoneNumber } from "firebase/auth";
 import "./auth_phone_recaptcha_verifier_simple";
 

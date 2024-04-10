@@ -1,3 +1,4 @@
+import "../firebaseConfig";
 import { getAuth, signInWithPopup, FacebookAuthProvider } from "firebase/auth";
 import { provider } from "./auth_facebook_provider_create";
 

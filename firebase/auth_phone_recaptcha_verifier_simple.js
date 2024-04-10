@@ -1,3 +1,4 @@
+import "../firebaseConfig";
 import { getAuth, RecaptchaVerifier } from "firebase/auth";
 
 const auth = getAuth();

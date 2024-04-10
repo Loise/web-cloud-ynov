@@ -1,4 +1,4 @@
-export const verifyCode = async (code) => {
+export const verifyCode = async (code, confirmationResult) => {
     confirmationResult.confirm(code).then((result) => {
         // User signed in successfully.
         const user = result.user;

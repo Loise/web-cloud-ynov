@@ -21,6 +21,7 @@ export default function Page() {
   const [email, onChangeEmail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
   const [phoneNumber, onChangePhoneNumber] = React.useState("");
+  const [phoneResult, setPhoneResult] = React.useState(null);
   const [code, onChangeCode] = React.useState("");
 
 
@@ -58,14 +59,14 @@ export default function Page() {
         onChangeText={onChangePhoneNumber}
         value={phoneNumber}
       ></TextInput>
-      <Button title="Sign Up!" onPress={() => loginWithPhoneNumber(phoneNumber)} />
+      <Button title="Sign Up!" onPress={() => setPhoneResult(loginWithPhoneNumber(phoneNumber))} />
       <Text>Code</Text>
       <TextInput
         style={styles.input}
         onChangeText={onChangeCode}
         value={code}
       ></TextInput>
-      <Button title="Check code!" onPress={() => verifyCode(code)} />
+      <Button title="Check code!" onPress={() => verifyCode(code, phoneResult)} />
 
     </View>
   );

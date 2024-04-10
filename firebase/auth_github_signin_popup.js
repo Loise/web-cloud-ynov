@@ -1,3 +1,4 @@
+import "../firebaseConfig";
 import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
 import { provider } from "./auth_github_provider_create";
 import Toast from 'react-native-toast-message';
