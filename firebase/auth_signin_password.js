@@ -1,4 +1,3 @@
-import "../firebaseConfig";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Toast from 'react-native-toast-message';
 
