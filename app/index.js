@@ -22,10 +22,7 @@ export default function Page() {
   const [email, onChangeEmail] = React.useState("");
   const [password, onChangePassword] = React.useState("");
   const [phoneNumber, onChangePhoneNumber] = React.useState("");
-  const [phoneResult, setPhoneResult] = React.useState(null);
   const [code, onChangeCode] = React.useState("");
-
-
 
   return (
     <View style={styles.container}>
@@ -65,7 +62,7 @@ export default function Page() {
         onChangeText={onChangePhoneNumber}
         value={phoneNumber}
       ></TextInput>
-      <Pressable id="sign-in-button-phone" onPress={() => setPhoneResult(loginWithPhoneNumber(phoneNumber))} style = {styles.button}>
+      <Pressable id="sign-in-button-phone" onPress={() => loginWithPhoneNumber(phoneNumber)} style = {styles.button}>
         <Text>Sign In with Phone</Text>
       </Pressable>
       <div id="recaptcha-container"></div>
@@ -75,7 +72,7 @@ export default function Page() {
         onChangeText={onChangeCode}
         value={code}
       ></TextInput>
-      <Pressable onPress={() => verifyCode(code, phoneResult)} style = {styles.button}>
+      <Pressable onPress={() => verifyCode(code)} style = {styles.button}>
         <Text>Check Code !</Text>
       </Pressable>
 
