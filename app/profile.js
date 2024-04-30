@@ -1,4 +1,5 @@
 import React from "react";
+import "../firebaseConfig"
 import { StyleSheet, Text, View, Image, Button } from "react-native";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import * as ImagePicker from 'expo-image-picker';

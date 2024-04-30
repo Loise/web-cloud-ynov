@@ -1,10 +1,29 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { StyleSheet, Text, View } from "react-native";
-
+import { Link } from 'expo-router';
+import { getPostData } from "../firebase/get_post_data";
 export default function Home() {
+  const [posts, setPosts] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getPostData();
+      console.log(data);
+      setPosts(data);
+    }
+    fetchData();
+  }, [])
   return (
     <View style={styles.container}>
-      <Text>Welcome</Text>
+      <Text>Bienvenue</Text>
+      <Link href="newpost">Créer un nouveau post</Link>
+      {posts.map((p) => {
+        return (
+          <View key={p.id} style={styles.item}>
+            <Text style={styles.itemTitle}>{p.title}</Text>
+            <Text>{p.text}</Text>
+          </View>
+        );
+      })}
     </View>
   );
 }
@@ -16,6 +35,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
+  item: {
+    padding: 20,
+    fontSize: 15,
+    marginTop: 5,
+    border: "1px solid blue"
+  },
+  itemTitle: {
+    fontWeight: "bold"
+  }, 
   input: {
     height: 40,
     width: 200,
